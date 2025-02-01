@@ -25,12 +25,7 @@ export const signUpSchema = {
         phone: Joi.string(),
         age: Joi.number(),
 
-        min: Joi.number(),
-        max: Joi.when('min', {
-            is: Joi.number().integer().greater(10),
-            then: Joi.number().greater(Joi.ref('min')),
-            otherwise: Joi.number().integer().less(10)
-        })
+     
     }).options({ presence: "required" })
     // .with('email', 'password')
 }
